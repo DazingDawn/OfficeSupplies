@@ -4,22 +4,31 @@ public class DeskChair
     public double rotation = 0.0;
     public double height = 3.0;
     public double newRotation = 0.0;
-    public double rotate()
+
+    public void rotate() 
     {
-        newRotation = rotation + 5;
-        if (newRotation <= 360.0 || newRotation >= 0.0)
+        newRotation = rotation + -10.0;
+        if (newRotation <= 360.0 && newRotation >= 0.0) 
         {
             rotation = newRotation;
-        }
-        else if (newRotation > 360.0)
+        } else if (newRotation > 360.0) 
         {
-            newRotation = newRotation - 360.0;
-        }
-        else if (newRotation < 0.0)
+            rotation = newRotation - 360.0;
+        } else if (newRotation < 0.0) 
         {
-            newRotation = newRotation + 360.0;
+            rotation = newRotation + 360.0;
         }
     }
-    System.out.println("the old rotation was 0.0. the new rotation is " + rotation + " and the expected value was 5.0.");
+    public void changeAngle()
+    {
 
+    }
+
+    public static void main(String[] args) 
+    {
+        DeskChair deskChair = new DeskChair(); // Create an instance
+        deskChair.rotate(); // Call the rotate method
+
+        System.out.println("the old rotation was 0.0. the new rotation is " + deskChair.rotation + " and the expected value was 10.0.");
+    }
 }
