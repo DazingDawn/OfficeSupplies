@@ -5,6 +5,7 @@ public class DeskChair
     public double height = 3.0;
     public double newRotation = 0.0;
     public double newAngle = 0.0;
+    public double newHeight = 0.0;
 
     public void rotate() 
     {
@@ -36,7 +37,22 @@ public class DeskChair
             angle = newAngle + 90.0;
         }
     }
-
+    public void changeHeight()
+    {
+        newHeight = height + -10.0;
+        if (newHeight <= 8.0 && newHeight >= 0.0) 
+        {
+            height = newHeight;
+        } 
+        else if (newHeight > 8.0) 
+        {
+            newHeight = 8.0;
+        } 
+        else if (newHeight < 0.0) 
+        {
+            newHeight = 0.0;
+        }
+    }
     public static void main(String[] args) 
     {
         DeskChair deskChair = new DeskChair(); // Create an instance
@@ -44,5 +60,7 @@ public class DeskChair
         System.out.println("the old rotation was 0.0. the new rotation is " + deskChair.rotation + " and the expected value was 10.0.");
         deskChair.changeAngle();
         System.out.println("the old angle was 45.0. the new angle is " + deskChair.angle + " and the expected value was 35.0.");
+        deskChair.changeHeight();
+        System.out.println("the old height was 3.0. the new height is " + deskChair.height + " and the expected value was 0.0.");
     }
 }
