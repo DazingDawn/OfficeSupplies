@@ -3,9 +3,13 @@ public class DeskChair
     public double angle = 45.0;
     public double rotation = 0.0;
     public double height = 3.0;
+    public double x = 0.0;
+    public double y = 0.0;
     public double newRotation = 0.0;
     public double newAngle = 0.0;
     public double newHeight = 0.0;
+    public double newX = 0.0;
+    public double newY = 0.0;
 
     public void rotate() 
     {
@@ -13,10 +17,12 @@ public class DeskChair
         if (newRotation <= 360.0 && newRotation >= 0.0) 
         {
             rotation = newRotation;
-        } else if (newRotation > 360.0) 
+        } 
+        else if (newRotation > 360.0) 
         {
             rotation = newRotation - 360.0;
-        } else if (newRotation < 0.0) 
+        } 
+        else if (newRotation < 0.0) 
         {
             rotation = newRotation + 360.0;
         }
@@ -53,6 +59,36 @@ public class DeskChair
             newHeight = 0.0;
         }
     }
+    public void move()
+    {
+        newX = x + -10.0;
+        newY = y + 35;
+        if (newX <= 50.0 && newX >= -50.0) 
+        {
+            x = newX;
+        } 
+        else if (newX > 50.0) 
+        {
+            newX = 50.0;
+        } 
+        else if (newX < -50.0) 
+        {
+            newX = -50.0;
+        }
+        if (newY <= 50.0 && newY >= -50.0) 
+        {
+            y = newY;
+        } 
+        else if (newY > 50.0) 
+        {
+            newY = 50.0;
+        } 
+        else if (newY < -50.0) 
+        {
+            newY = -50.0;
+        }
+
+    }
     public static void main(String[] args) 
     {
         DeskChair deskChair = new DeskChair(); // Create an instance
@@ -62,5 +98,8 @@ public class DeskChair
         System.out.println("the old angle was 45.0. the new angle is " + deskChair.angle + " and the expected value was 35.0.");
         deskChair.changeHeight();
         System.out.println("the old height was 3.0. the new height is " + deskChair.height + " and the expected value was 0.0.");
+        deskChair.move();
+        System.out.println("the old X was 0.0. the new X is " + deskChair.x + " and the expected value was -10.0.");
+        System.out.println("the old Y was 0.0. the new Y is " + deskChair.y + " and the expected value was 35.0.");
     }
 }
