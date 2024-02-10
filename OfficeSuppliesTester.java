@@ -31,5 +31,14 @@ public class OfficeSuppliesTester
         System.out.println("The old X was 0.0. The new X is " + deskChair.x + " and the expected value was -10.0.");
         System.out.println("The old Y was 0.0. The new Y is " + deskChair.y + " and the expected value was 35.0.");
 
+        fileCabinet fc = new fileCabinet("The King", "We are going to assasinate the king of England tomorrow at 8:00am", 101, false, 007);
+        fc.openCabinet(111);
+        fc.openCabinet(007);
+        System.out.println(fc.getStatus());
+        System.out.println(fc.getFileContent());
+        System.out.println(fc.getFileNum());
+        System.out.println(fc.getFileTitle());
+        fc.closeCabinet();
+        System.out.println(fc.getStatus());
     }
 }
